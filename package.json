@@ -1,0 +1,21 @@
+{
+  "name": "@ppg007/otp",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "description": "otp implements TOTP and HOTP generation",
+  "types": "./dist/index.d.ts",
+  "devDependencies": {
+    "@types/jssha": "^3.0.0",
+    "@types/node": "^20.10.3",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "jssha": "^3.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PPG007/otp.git"
+  },
+  "author": "PPG007 <1658272229@qq.com>"
+}
