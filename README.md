@@ -46,6 +46,16 @@ const genHOTP = (counter: number): string => {
 };
 ```
 
+## Sign OTPAuth URL
+
+```ts
+import { signURL } from '@ppg007/otp';
+signURL({
+    secret: 'secret',
+    type: 'totp',
+})
+```
+
 ## Options
 
 Common Options:
@@ -67,3 +77,13 @@ HOTP Options:
 |Option|Type|Describe|Values|
 |------|----|--------|------|
 |counter|number|the HOTP counter initial value|default value is 0|
+
+OTPAuth Options:
+
+|Option|Type|Describe| Values           |
+|------|----|--------|------------------|
+|issuer|string|the otp issuer| this is optional |
+|label|string|the otp owner info, such as user email|default value is 'user'|
+|type|string|the otp type|'totp' or 'hotp'|
+|counter|number|HOTP counter initial value, only usable when type is 'hotp'|default value is 0|
+|period|number|TOTP period, only usable when type is 'totp'|default value is 30|
