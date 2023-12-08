@@ -56,4 +56,23 @@ const leftPad = (str, len, pad) => {
     }
     return str;
 };
-export { totp, hotp };
+const signURL = (option) => {
+    const query = new URLSearchParams();
+    query.set('secret', option.secret);
+    query.set('digits', `${option.digits || 6}`);
+    if (option.issuer) {
+        query.set('issuer', option.issuer);
+    }
+    if (option.type === 'totp') {
+        query.set('period', `${option.period || 30}`);
+    }
+    else {
+        query.set('counter', `${option.counter || 0}`);
+    }
+    const algorithm = option.algorithm || 'SHA-1';
+    query.set('algorithm', algorithm.replace('-', '').toLowerCase());
+    const url = new URL(`otpauth://${option.type}/${encodeURIComponent(option.label || 'user')}`);
+    url.search = query.toString();
+    return url.toString();
+};
+export { totp, hotp, signURL };

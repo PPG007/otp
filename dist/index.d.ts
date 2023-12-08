@@ -12,4 +12,12 @@ export interface HotpOptions extends CommonOptions {
     counter?: number;
 }
 declare const hotp: (options: HotpOptions) => string;
-export { totp, hotp };
+export interface OTPAuthURLOptions extends CommonOptions {
+    issuer?: string;
+    label?: string;
+    counter?: number;
+    type: 'totp' | 'hotp';
+    period?: number;
+}
+declare const signURL: (option: OTPAuthURLOptions) => string;
+export { totp, hotp, signURL };

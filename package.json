@@ -1,6 +1,6 @@
 {
   "name": "@ppg007/otp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "./dist/index.js",
   "license": "MIT",
   "description": "otp implements TOTP and HOTP generation",
